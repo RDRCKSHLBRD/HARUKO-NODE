@@ -1,0 +1,57 @@
+[
+  {
+    "id": "kt001",
+    "title": "Suzuki Carry Mini Truck",
+    "year": "2017",
+    "engine": "660cc 3-cylinder",
+    "transmission": "5-speed manual",
+    "capacity": "350kg",
+    "mileage": "12,500 km",
+    "price": "$8,995",
+    "description": "The Suzuki Carry is a reliable workhorse perfect for urban deliveries and small business operations. This well-maintained 2017 model features air conditioning, power steering, and a tilt-able cargo bed. With excellent fuel economy and easy maneuverability, this Kei truck is ideal for navigating narrow streets and tight spaces."
+  },
+  {
+    "id": "kt002",
+    "title": "Honda Acty Mini Truck",
+    "year": "2018",
+    "engine": "660cc 3-cylinder DOHC",
+    "transmission": "5-speed manual with low range",
+    "capacity": "400kg",
+    "mileage": "9,800 km",
+    "price": "$9,200",
+    "description": "This Honda Acty is a versatile mini truck that combines compact size with impressive utility. Featuring selectable 4WD with high and low range, this Kei truck excels in various terrain conditions. Perfect for farming, landscaping, or small delivery businesses. Includes factory air conditioning, radio, and hydraulic dump bed."
+  },
+  {
+    "id": "kt003",
+    "title": "Daihatsu Hijet Mini Truck",
+    "year": "2019",
+    "engine": "660cc Turbo 3-cylinder",
+    "transmission": "CVT Automatic",
+    "capacity": "375kg",
+    "mileage": "7,200 km",
+    "price": "$10,500",
+    "description": "This nearly-new Daihatsu Hijet features a turbocharged engine for added power and a convenient automatic transmission. The spacious cabin offers comfort for daily use, while the practical bed with drop sides makes loading and unloading a breeze. Comes equipped with air conditioning, power windows, and keyless entry."
+  },
+  {
+    "id": "kt004",
+    "title": "Mitsubishi Minicab Mini Truck",
+    "year": "2016",
+    "engine": "660cc 3-cylinder EFI",
+    "transmission": "4-speed automatic",
+    "capacity": "350kg",
+    "mileage": "15,300 km",
+    "price": "$7,995",
+    "description": "The Mitsubishi Minicab offers exceptional reliability and economy in a compact package. This 2016 model features a user-friendly automatic transmission, making it accessible for any driver. The well-designed cargo area includes tie-down points and side rails. Perfect for maintenance crews, gardeners, or small-scale deliveries."
+  },
+  {
+    "id": "kt005",
+    "title": "Subaru Sambar Mini Truck",
+    "year": "2020",
+    "engine": "660cc 4-cylinder DOHC",
+    "transmission": "5-speed manual with crawler gear",
+    "capacity": "400kg",
+    "mileage": "3,200 km",
+    "price": "$11,995",
+    "description": "This nearly-new Subaru Sambar represents the latest in Kei truck technology. Features include selectable 4WD, differential lock, and a special crawler gear for difficult terrain. The reinforced bed includes a factory dump mechanism and folding sides. Premium features include heated seats, climate control, and enhanced sound insulation."
+  }
+]

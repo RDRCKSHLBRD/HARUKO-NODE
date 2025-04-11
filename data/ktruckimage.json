@@ -1,0 +1,32 @@
+[
+  {
+    "id": "kt001",
+    "imageUrl": "/assets/Suzuki-Carry-1991-1998.png",
+    "thumbnailUrl": "/assets/Suzuki-Carry-1991-1998.png",
+    "alt": "Suzuki Carry Mini Truck"
+  },
+  {
+    "id": "kt002",
+    "imageUrl": "/assets/Honda-Acty-1990-1999.png",
+    "thumbnailUrl": "/assets/Honda-Acty-1990-1999.png",
+    "alt": "Honda Acty Mini Truck"
+  },
+  {
+    "id": "kt003",
+    "imageUrl": "/assets/Daihatsu-Hijet-1990-1993-1994-1998.png",
+    "thumbnailUrl": "/assets/Daihatsu-Hijet-1990-1993-1994-1998.png",
+    "alt": "Daihatsu Hijet Mini Truck"
+  },
+  {
+    "id": "kt004",
+    "imageUrl": "/assets/Mitsubishi-Mini-Cab-1991-1998.png",
+    "thumbnailUrl": "/assets/Mitsubishi-Mini-Cab-1991-1998.png",
+    "alt": "Mitsubishi Minicab Mini Truck"
+  },
+  {
+    "id": "kt005",
+    "imageUrl": "/assets/Subaru-Sambar-1991-1998.png",
+    "thumbnailUrl": "/assets/Subaru-Sambar-1991-1998.png",
+    "alt": "Subaru Sambar Mini Truck"
+  }
+]
