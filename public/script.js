@@ -47,6 +47,16 @@ function selectDOMelements() {
     const body = document.body;
     const kTrucksGrid = document.getElementById('ktrucks-grid');
     const kTruckModal = document.getElementById('ktruck-modal');
+    const kotatsuGrid = document.getElementById('kotatsu-grid');
+    const kotatsuModal = document.getElementById('kotatsu-modal');
+    const animeGrid = document.getElementById('anime-grid');
+    const animeModal = document.getElementById('anime-modal');
+    const jstoreGrid = document.getElementById('jstore-grid');
+    const jstoreModal = document.getElementById('jstore-modal');
+    const gaijinGrid = document.getElementById('gaijin-grid');
+    const gaijinModal = document.getElementById('gaijin-modal');
+    const wsskateGrid = document.getElementById('wsskate-grid');
+    const wsskateModal = document.getElementById('wsskate-modal');
 
     if (!containers.length || !sidebar || !sidebarDetails || !submenuDetails.length || !body) {
       console.warn('selectDOMelements: Basic elements not found.');
@@ -61,6 +71,16 @@ function selectDOMelements() {
       body,
       kTrucksGrid: kTrucksGrid || null,
       kTruckModal: kTruckModal || null,
+      kotatsuGrid: kotatsuGrid || null,
+      kotatsuModal: kotatsuModal || null,
+      animeGrid: animeGrid || null,
+      animeModal: animeModal || null,
+      jstoreGrid: jstoreGrid || null,
+      jstoreModal: jstoreModal || null,
+      gaijinGrid: gaijinGrid || null,
+      gaijinModal: gaijinModal || null,
+      wsskateGrid: wsskateGrid || null,
+      wsskateModal: wsskateModal || null
     };
   } catch (error) {
     console.error('selectDOMelements: Error selecting elements:', error);
@@ -76,6 +96,16 @@ function initializeAppData() {
   return {
     kTruckImages: [],
     kTruckDescriptions: [],
+    kotatsuImages: [],
+    kotatsuDescriptions: [],
+    animeImages: [],
+    animeDescriptions: [],
+    jstoreImages: [],
+    jstoreDescriptions: [],
+    gaijinImages: [],
+    gaijinDescriptions: [],
+    wsskateImages: [],
+    wsskateDescriptions: [],
     externalLink: 'https://skiptskool.onrender.com/',
     externalSvg: './assets/SKPTSKL-T1.svg',
   };
@@ -91,22 +121,71 @@ async function loadInitialData(appData) {
     console.log('loadInitialData: Starting to load data from API');
     
     // Load data in parallel for better performance
-    const [kTruckImages, kTruckDescriptions, linksData] = await Promise.all([
-      fetchData('/api/data/ktruckimage.json'),
-      fetchData('/api/data/ktruckdescription.json'),
-      fetchData('/api/data/links.json')
+    const [
+      kTruckImages, 
+      kTruckDescriptions, 
+      kotatsuImages, 
+      kotatsuDescriptions,
+      animeImages,
+      animeDescriptions,
+      jstoreImages,
+      jstoreDescriptions,
+      gaijinImages,
+      gaijinDescriptions,
+      wsskateImages,
+      wsskateDescriptions,
+      linksData
+    ] = await Promise.all([
+      fetchData('/api/data/ktruckimage.json').catch(() => []),
+      fetchData('/api/data/ktruckdescription.json').catch(() => []),
+      fetchData('/api/data/kotatsu.json').catch(() => generatePlaceholderData('kotatsu', 5)),
+      fetchData('/api/data/kotatsudescription.json').catch(() => generatePlaceholderDescriptions('kotatsu', 5)),
+      fetchData('/api/data/anime.json').catch(() => generatePlaceholderData('anime', 5)),
+      fetchData('/api/data/animedescription.json').catch(() => generatePlaceholderDescriptions('anime', 5)),
+      fetchData('/api/data/jstore.json').catch(() => generatePlaceholderData('jstore', 5)),
+      fetchData('/api/data/jstoredescription.json').catch(() => generatePlaceholderDescriptions('jstore', 5)),
+      fetchData('/api/data/gaijin.json').catch(() => generatePlaceholderData('gaijin', 5)),
+      fetchData('/api/data/gaijindescription.json').catch(() => generatePlaceholderDescriptions('gaijin', 5)),
+      fetchData('/api/data/wsskate.json').catch(() => generatePlaceholderData('wsskate', 5)),
+      fetchData('/api/data/wsskatedescription.json').catch(() => generatePlaceholderDescriptions('wsskate', 5)),
+      fetchData('/api/data/links.json').catch(() => ({}))
     ]);
 
     console.log('Data loaded from API:');
     console.log('- K Truck Images:', kTruckImages?.length || 0, 'items');
     console.log('- K Truck Descriptions:', kTruckDescriptions?.length || 0, 'items');
+    console.log('- Kotatsu Images:', kotatsuImages?.length || 0, 'items');
+    console.log('- Kotatsu Descriptions:', kotatsuDescriptions?.length || 0, 'items');
+    console.log('- Anime Images:', animeImages?.length || 0, 'items');
+    console.log('- Anime Descriptions:', animeDescriptions?.length || 0, 'items');
+    console.log('- Japanese Store Images:', jstoreImages?.length || 0, 'items');
+    console.log('- Japanese Store Descriptions:', jstoreDescriptions?.length || 0, 'items');
+    console.log('- Gaijin Haiku Images:', gaijinImages?.length || 0, 'items');
+    console.log('- Gaijin Haiku Descriptions:', gaijinDescriptions?.length || 0, 'items');
+    console.log('- WS SKATE Images:', wsskateImages?.length || 0, 'items');
+    console.log('- WS SKATE Descriptions:', wsskateDescriptions?.length || 0, 'items');
     
     // Fix image paths if needed
-    const fixedImages = fixImagePaths(kTruckImages || []);
+    const fixedKTruckImages = fixImagePaths(kTruckImages || []);
+    const fixedKotatsuImages = fixImagePaths(kotatsuImages || []);
+    const fixedAnimeImages = fixImagePaths(animeImages || []);
+    const fixedJstoreImages = fixImagePaths(jstoreImages || []);
+    const fixedGaijinImages = fixImagePaths(gaijinImages || []);
+    const fixedWsskateImages = fixImagePaths(wsskateImages || []);
     
     // Populate app data
-    appData.kTruckImages = fixedImages;
+    appData.kTruckImages = fixedKTruckImages;
     appData.kTruckDescriptions = kTruckDescriptions || [];
+    appData.kotatsuImages = fixedKotatsuImages;
+    appData.kotatsuDescriptions = kotatsuDescriptions || [];
+    appData.animeImages = fixedAnimeImages;
+    appData.animeDescriptions = animeDescriptions || [];
+    appData.jstoreImages = fixedJstoreImages;
+    appData.jstoreDescriptions = jstoreDescriptions || [];
+    appData.gaijinImages = fixedGaijinImages;
+    appData.gaijinDescriptions = gaijinDescriptions || [];
+    appData.wsskateImages = fixedWsskateImages;
+    appData.wsskateDescriptions = wsskateDescriptions || [];
     
     // Only update if data exists
     if (linksData && linksData.skiptSkool) {
@@ -122,6 +201,62 @@ async function loadInitialData(appData) {
 }
 
 /**
+ * Generate placeholder data for testing when API fails
+ * @param {string} type Type of data to generate
+ * @param {number} count Number of items to generate
+ * @returns {Array} Array of placeholder data objects
+ */
+function generatePlaceholderData(type, count) {
+  console.log(`Generating ${count} placeholder items for ${type}`);
+  const items = [];
+  for (let i = 1; i <= count; i++) {
+    items.push({
+      id: `${type}-${i}`,
+      imageUrl: `https://via.placeholder.com/800x500?text=${type}+Item+${i}`,
+      thumbnailUrl: `https://via.placeholder.com/200x150?text=${type}+Item+${i}`,
+      alt: `${type.charAt(0).toUpperCase() + type.slice(1)} Item ${i}`
+    });
+  }
+  return items;
+}
+
+/**
+ * Generate placeholder descriptions for testing when API fails
+ * @param {string} type Type of data to generate
+ * @param {number} count Number of items to generate
+ * @returns {Array} Array of placeholder description objects
+ */
+function generatePlaceholderDescriptions(type, count) {
+  console.log(`Generating ${count} placeholder descriptions for ${type}`);
+  const items = [];
+  const specs = {
+    kotatsu: ['size', 'material', 'heater', 'style', 'price'],
+    anime: ['title', 'genre', 'episodes', 'year', 'price'],
+    jstore: ['category', 'origin', 'material', 'size', 'price'],
+    gaijin: ['title', 'author', 'style', 'year', 'price'],
+    wsskate: ['title', 'length', 'format', 'year', 'price']
+  };
+  
+  for (let i = 1; i <= count; i++) {
+    const item = {
+      id: `${type}-${i}`,
+      title: `${type.charAt(0).toUpperCase() + type.slice(1)} Item ${i}`,
+      description: `This is a detailed description for ${type} item ${i}. It includes all the important information that a customer might want to know before making a purchase.`
+    };
+    
+    // Add type-specific specs
+    if (specs[type]) {
+      specs[type].forEach(spec => {
+        item[spec] = `Sample ${spec} ${i}`;
+      });
+    }
+    
+    items.push(item);
+  }
+  return items;
+}
+
+/**
  * Fix image paths in truck data
  * @param {Array} trucks Truck data
  * @returns {Array} Trucks with fixed image paths
@@ -132,11 +267,11 @@ function fixImagePaths(trucks) {
     const fixedTruck = {...truck};
     
     // Fix paths by ensuring they start with /assets/ or assets/
-    if (fixedTruck.imageUrl && !fixedTruck.imageUrl.includes('assets')) {
+    if (fixedTruck.imageUrl && !fixedTruck.imageUrl.includes('assets') && !fixedTruck.imageUrl.startsWith('http')) {
       fixedTruck.imageUrl = `/assets/${fixedTruck.imageUrl.split('/').pop()}`;
     }
     
-    if (fixedTruck.thumbnailUrl && !fixedTruck.thumbnailUrl.includes('assets')) {
+    if (fixedTruck.thumbnailUrl && !fixedTruck.thumbnailUrl.includes('assets') && !fixedTruck.thumbnailUrl.startsWith('http')) {
       fixedTruck.thumbnailUrl = `/assets/${fixedTruck.thumbnailUrl.split('/').pop()}`;
     }
     
@@ -166,13 +301,43 @@ function renderInitialUI(elements, appData) {
   // Add a small delay to ensure DOM is updated before trying to populate
   setTimeout(() => {
     console.log('Delayed grid population starting');
-    // Try to get the grid element directly
+    
+    // Try to get the grid elements directly
     const kTrucksGrid = document.getElementById('ktrucks-grid');
+    const kotatsuGrid = document.getElementById('kotatsu-grid');
+    const animeGrid = document.getElementById('anime-grid');
+    const jstoreGrid = document.getElementById('jstore-grid');
+    const gaijinGrid = document.getElementById('gaijin-grid');
+    const wsskateGrid = document.getElementById('wsskate-grid');
+    
     if (kTrucksGrid) {
       console.log('Found ktrucks-grid element, populating with', appData.kTruckImages.length, 'trucks');
-      populateKTrucksGrid(kTrucksGrid, appData.kTruckImages);
-    } else {
-      console.error('Could not find ktrucks-grid element after timeout');
+      populateProductGrid(kTrucksGrid, appData.kTruckImages, 'ktruck');
+    }
+    
+    if (kotatsuGrid) {
+      console.log('Found kotatsu-grid element, populating with', appData.kotatsuImages.length, 'items');
+      populateProductGrid(kotatsuGrid, appData.kotatsuImages, 'kotatsu');
+    }
+    
+    if (animeGrid) {
+      console.log('Found anime-grid element, populating with', appData.animeImages.length, 'items');
+      populateProductGrid(animeGrid, appData.animeImages, 'anime');
+    }
+    
+    if (jstoreGrid) {
+      console.log('Found jstore-grid element, populating with', appData.jstoreImages.length, 'items');
+      populateProductGrid(jstoreGrid, appData.jstoreImages, 'jstore');
+    }
+    
+    if (gaijinGrid) {
+      console.log('Found gaijin-grid element, populating with', appData.gaijinImages.length, 'items');
+      populateProductGrid(gaijinGrid, appData.gaijinImages, 'gaijin');
+    }
+    
+    if (wsskateGrid) {
+      console.log('Found wsskate-grid element, populating with', appData.wsskateImages.length, 'items');
+      populateProductGrid(wsskateGrid, appData.wsskateImages, 'wsskate');
     }
   }, 100);
   
@@ -185,21 +350,32 @@ function renderInitialUI(elements, appData) {
  * @param {Object} appData Application data
  */
 function setupSectionListeners(appData) {
-  // Get the K Trucks section
-  const kTrucksSection = document.querySelector('#section1 .section-details');
+  // Get all sections
+  const sections = [
+    { id: 'section1', type: 'ktruck', data: appData.kTruckImages },
+    { id: 'section2', type: 'kotatsu', data: appData.kotatsuImages },
+    { id: 'section3', type: 'anime', data: appData.animeImages },
+    { id: 'section4', type: 'jstore', data: appData.jstoreImages },
+    { id: 'section5', type: 'gaijin', data: appData.gaijinImages },
+    { id: 'section6', type: 'wsskate', data: appData.wsskateImages }
+  ];
   
-  if (kTrucksSection) {
-    kTrucksSection.addEventListener('toggle', () => {
-      if (kTrucksSection.open) {
-        console.log('K Trucks section opened, ensuring grid is populated');
-        const kTrucksGrid = document.getElementById('ktrucks-grid');
-        if (kTrucksGrid && (!kTrucksGrid.children.length || kTrucksGrid.children.length === 1 && kTrucksGrid.querySelector('.loading-indicator'))) {
-          console.log('Grid appears empty, repopulating');
-          populateKTrucksGrid(kTrucksGrid, appData.kTruckImages);
+  sections.forEach(({ id, type, data }) => {
+    const section = document.querySelector(`#${id} .section-details`);
+    
+    if (section) {
+      section.addEventListener('toggle', () => {
+        if (section.open) {
+          console.log(`${id} section opened, ensuring grid is populated`);
+          const grid = document.getElementById(`${type}-grid`);
+          if (grid && (!grid.children.length || (grid.children.length === 1 && grid.querySelector('.loading-indicator')))) {
+            console.log('Grid appears empty, repopulating');
+            populateProductGrid(grid, data, type);
+          }
         }
-      }
-    });
-  }
+      });
+    }
+  });
 }
 
 /**
@@ -226,7 +402,15 @@ function updateSections(containers, sections, appData) {
         if (sectionKey === 'section5') {
           renderGaijinHaiku(contentDiv, appData);
         } else if (sectionKey === 'section1') {
-          renderKTrucks(contentDiv, section.content);
+          renderProductSection(contentDiv, section.content, 'ktrucks', 'ktruck');
+        } else if (sectionKey === 'section2') {
+          renderProductSection(contentDiv, section.content, 'kotatsu', 'kotatsu');
+        } else if (sectionKey === 'section3') {
+          renderProductSection(contentDiv, section.content, 'anime', 'anime');
+        } else if (sectionKey === 'section4') {
+          renderProductSection(contentDiv, section.content, 'jstore', 'jstore');
+        } else if (sectionKey === 'section6') {
+          renderProductSection(contentDiv, section.content, 'wsskate', 'wsskate');
         } else {
           contentDiv.innerHTML = `<p>${section.content}</p>`;
         }
@@ -257,6 +441,15 @@ function renderGaijinHaiku(contentDiv, appData) {
           <p style="color: #E04C4C; font-weight: bold;">SKIPT SKOOL</p>
         </a>
       </div>
+      <div class="product-scroll-container">
+        <div class="product-grid" id="gaijin-grid"></div>
+      </div>
+      <div class="product-modal" id="gaijin-modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <div class="product-detail-container"></div>
+        </div>
+      </div>
     `;
   };
   
@@ -269,24 +462,35 @@ function renderGaijinHaiku(contentDiv, appData) {
           <img src="${appData.externalSvg}" alt="SKIPT SKOOL Logo" class="svg-image">
         </a>
       </div>
+      <div class="product-scroll-container">
+        <div class="product-grid" id="gaijin-grid"></div>
+      </div>
+      <div class="product-modal" id="gaijin-modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <div class="product-detail-container"></div>
+        </div>
+      </div>
     `;
   };
 }
 
 /**
- * Render K Trucks section
+ * Render product section with grid and modal
  * @param {HTMLElement} contentDiv Section content container
  * @param {string} content Section text content
+ * @param {string} gridId Grid identifier
+ * @param {string} modalPrefix Modal prefix
  */
-function renderKTrucks(contentDiv, content) {
+function renderProductSection(contentDiv, content, gridId, modalPrefix) {
   if (!contentDiv) return;
   
   contentDiv.innerHTML = `
     <p>${content}</p>
     <div class="product-scroll-container">
-      <div class="product-grid" id="ktrucks-grid"></div>
+      <div class="product-grid" id="${gridId}-grid"></div>
     </div>
-    <div class="product-modal" id="ktruck-modal">
+    <div class="product-modal" id="${modalPrefix}-modal">
       <div class="modal-content">
         <span class="close-modal">&times;</span>
         <div class="product-detail-container"></div>
@@ -296,22 +500,23 @@ function renderKTrucks(contentDiv, content) {
 }
 
 /**
- * Populate K Trucks grid with truck data
+ * Populate product grid with data
  * @param {HTMLElement} gridElement Grid container element
- * @param {Array} trucks Truck data
+ * @param {Array} items Product data
+ * @param {string} type Product type identifier
  */
-function populateKTrucksGrid(gridElement, trucks) {
-  console.log('populateKTrucksGrid called with', trucks?.length, 'trucks');
+function populateProductGrid(gridElement, items, type) {
+  console.log(`populateProductGrid called for ${type} with`, items?.length, 'items');
   
   if (!gridElement) {
-    console.error('populateKTrucksGrid: No grid element provided');
+    console.error(`populateProductGrid: No grid element provided for ${type}`);
     return;
   }
   
-  // Show loading message if no trucks available
-  if (!trucks || !trucks.length) {
-    console.warn('populateKTrucksGrid: No trucks data available');
-    gridElement.innerHTML = '<div class="loading-indicator">No K Trucks available.</div>';
+  // Show loading message if no items available
+  if (!items || !items.length) {
+    console.warn(`populateProductGrid: No ${type} data available`);
+    gridElement.innerHTML = `<div class="loading-indicator">No ${type} items available.</div>`;
     return;
   }
   
@@ -321,82 +526,118 @@ function populateKTrucksGrid(gridElement, trucks) {
   // Create document fragment for efficient DOM updates
   const fragment = document.createDocumentFragment();
   
-  trucks.forEach(truck => {
-    console.log('Creating truck item for', truck.id, truck.alt);
-    const item = createTruckItem(truck);
-    if (item) {
-      fragment.appendChild(item);
+  items.forEach(item => {
+    console.log(`Creating ${type} item for`, item.id, item.alt);
+    const itemElement = createProductItem(item, type);
+    if (itemElement) {
+      fragment.appendChild(itemElement);
     } else {
-      console.error('Failed to create item for truck', truck.id);
+      console.error(`Failed to create item for ${type}`, item.id);
     }
   });
   
   // Append all items at once
   gridElement.appendChild(fragment);
-  console.log('Grid populated with', gridElement.children.length, 'truck items');
+  console.log(`Grid populated with`, gridElement.children.length, `${type} items`);
 }
 
 /**
- * Create truck item element
- * @param {Object} truck Truck data
- * @returns {HTMLElement|null} Truck item element or null if data invalid
+ * Create product item element
+ * @param {Object} item Product data
+ * @param {string} type Product type
+ * @returns {HTMLElement|null} Product item element or null if data invalid
  */
-function createTruckItem(truck) {
-  if (!truck || !truck.thumbnailUrl || !truck.alt || !truck.id) {
-    console.error('createTruckItem: Invalid truck data', truck);
+function createProductItem(item, type) {
+  if (!item || !item.thumbnailUrl || !item.alt || !item.id) {
+    console.error(`createProductItem: Invalid ${type} data`, item);
     return null;
   }
 
-  const item = document.createElement('div');
-  item.className = 'product-item';
-  item.dataset.id = truck.id;
+  const itemElement = document.createElement('div');
+  itemElement.className = 'product-item';
+  itemElement.dataset.id = item.id;
   
   // Make sure the URL starts with / or is an absolute URL
-  const imgUrl = truck.thumbnailUrl.startsWith('/') ? truck.thumbnailUrl : `/${truck.thumbnailUrl}`;
+  const imgUrl = item.thumbnailUrl.startsWith('http')
+    ? item.thumbnailUrl 
+    : (item.thumbnailUrl.startsWith('/') ? item.thumbnailUrl : `/${item.thumbnailUrl}`);
   
-  item.innerHTML = `
-    <img class="product-image" src="${imgUrl}" alt="${truck.alt}" onerror="this.src='https://via.placeholder.com/200x150?text=${truck.id}'; console.log('Image load error for ${truck.id}');">
-    <div class="product-title">${truck.alt}</div>
+  itemElement.innerHTML = `
+    <img class="product-image"
+         src="${imgUrl}"
+         alt="${item.alt}"
+         onerror="this.src='https://via.placeholder.com/200x150?text=${item.id}'; console.log('Image load error for ${item.id}');">
+    <div class="product-title">${item.alt}</div>
   `;
   
   // Add click event listener
-  item.addEventListener('click', () => {
-    console.log('Truck clicked:', truck.id);
-    showTruckDetails(truck.id);
+  itemElement.addEventListener('click', () => {
+    console.log(`${type} clicked:`, item.id);
+    showProductDetails(item.id, type);
   });
   
-  return item;
+  return itemElement;
 }
 
 /**
- * Show truck details in modal
- * @param {string} truckId Truck ID
+ * Show product details in modal
+ * @param {string} itemId Product ID
+ * @param {string} type Product type
  */
-function showTruckDetails(truckId) {
-  console.log('showTruckDetails called for', truckId);
+function showProductDetails(itemId, type) {
+  console.log(`showProductDetails called for ${type} with ID ${itemId}`);
   
-  const modal = document.getElementById('ktruck-modal');
+  const modal = document.getElementById(`${type}-modal`);
   if (!modal) {
-    console.error('Modal element not found');
+    console.error(`Modal element not found for ${type}`);
     return;
   }
 
-  // Find truck data
-  const image = appData.kTruckImages.find(img => img.id === truckId);
-  const description = appData.kTruckDescriptions.find(desc => desc.id === truckId);
+  // Find item data based on type
+  let image, description;
+  
+  switch (type) {
+    case 'ktruck':
+      image = appData.kTruckImages.find(img => img.id === itemId);
+      description = appData.kTruckDescriptions.find(desc => desc.id === itemId);
+      break;
+    case 'kotatsu':
+      image = appData.kotatsuImages.find(img => img.id === itemId);
+      description = appData.kotatsuDescriptions.find(desc => desc.id === itemId);
+      break;
+    case 'anime':
+      image = appData.animeImages.find(img => img.id === itemId);
+      description = appData.animeDescriptions.find(desc => desc.id === itemId);
+      break;
+    case 'jstore':
+      image = appData.jstoreImages.find(img => img.id === itemId);
+      description = appData.jstoreDescriptions.find(desc => desc.id === itemId);
+      break;
+    case 'gaijin':
+      image = appData.gaijinImages.find(img => img.id === itemId);
+      description = appData.gaijinDescriptions.find(desc => desc.id === itemId);
+      break;
+    case 'wsskate':
+      image = appData.wsskateImages.find(img => img.id === itemId);
+      description = appData.wsskateDescriptions.find(desc => desc.id === itemId);
+      break;
+    default:
+      console.error(`Unknown product type: ${type}`);
+      return;
+  }
 
   if (!image || !description) {
-    console.error('Truck data not found for ID:', truckId);
-    displayError(null, 'Truck details not found.');
+    console.error(`${type} data not found for ID:`, itemId);
+    displayError(null, `${type} details not found.`);
     return;
   }
 
-  console.log('Found truck data:', image, description);
+  console.log(`Found ${type} data:`, image, description);
   
   // Populate and show modal
   const contentContainer = modal.querySelector('.product-detail-container');
   if (contentContainer) {
-    contentContainer.innerHTML = createTruckDetailHTML(image, description);
+    contentContainer.innerHTML = createProductDetailHTML(image, description);
   }
   
   modal.style.display = 'flex';
@@ -420,30 +661,38 @@ function showTruckDetails(truckId) {
 }
 
 /**
- * Create truck detail HTML
- * @param {Object} image Truck image data
- * @param {Object} description Truck description data
+ * Create product detail HTML
+ * @param {Object} image Product image data
+ * @param {Object} description Product description data
  * @returns {string} HTML content
  */
-function createTruckDetailHTML(image, description) {
+function createProductDetailHTML(image, description) {
   if (!image || !description) return '';
   
   // Make sure image URL is correct
-  const imgUrl = image.imageUrl.startsWith('/') ? image.imageUrl : `/${image.imageUrl}`;
+  const imgUrl = image.imageUrl.startsWith('http')
+    ? image.imageUrl
+    : (image.imageUrl.startsWith('/') ? image.imageUrl : `/${image.imageUrl}`);
+  
+  // Get dynamic specs based on available keys in description
+  const specEntries = Object.entries(description)
+    .filter(([key]) => !['id', 'title', 'description'].includes(key))
+    .map(([key, value]) => `
+      <div class="spec-item">
+        <div class="spec-label">${key}</div>
+        <div class="spec-value">${value}</div>
+      </div>
+    `)
+    .join('');
   
   return `
-    <img class="product-detail-image" src="${imgUrl}" alt="${image.alt}" onerror="this.src='https://via.placeholder.com/800x500?text=${image.id}'; console.log('Detail image load error for ${image.id}');">
+    <img class="product-detail-image"
+         src="${imgUrl}"
+         alt="${image.alt}"
+         onerror="this.src='https://via.placeholder.com/800x500?text=${image.id}'; console.log('Detail image load error for ${image.id}');">
     <h2 class="product-detail-title">${description.title}</h2>
     <div class="product-detail-specs">
-      ${Object.entries(description)
-        .filter(([key]) => ['year', 'engine', 'transmission', 'capacity', 'mileage', 'price'].includes(key))
-        .map(([key, value]) => `
-          <div class="spec-item">
-            <div class="spec-label">${key}</div>
-            <div class="spec-value">${value}</div>
-          </div>
-        `)
-        .join('')}
+      ${specEntries}
     </div>
     <p class="product-detail-description">${description.description}</p>
   `;
@@ -503,10 +752,23 @@ function setupEventListeners(elements, appData) {
     });
   });
 
-  // Escape key for modal
+  // Escape key for all modals
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && elements.kTruckModal && elements.kTruckModal.style.display === 'flex') {
-      elements.kTruckModal.style.display = 'none';
+    if (event.key === 'Escape') {
+      const modals = [
+        elements.kTruckModal,
+        elements.kotatsuModal,
+        elements.animeModal,
+        elements.jstoreModal,
+        elements.gaijinModal,
+        elements.wsskateModal
+      ];
+      
+      modals.forEach(modal => {
+        if (modal && modal.style.display === 'flex') {
+          modal.style.display = 'none';
+        }
+      });
     }
   });
 }
@@ -586,27 +848,56 @@ function forceSubmenuExpansion() {
  * Debugging helpers - you can run these in your browser console
  */
 function forceGridPopulation() {
-  const grid = document.getElementById('ktrucks-grid');
-  if (grid) {
-    console.log('Attempting to force populate grid with', appData.kTruckImages.length, 'items');
-    populateKTrucksGrid(grid, appData.kTruckImages);
-    return 'Grid population attempted';
-  } else {
-    return 'Could not find grid element';
+  const grids = {
+    ktrucks: appData.kTruckImages,
+    kotatsu: appData.kotatsuImages,
+    anime: appData.animeImages,
+    jstore: appData.jstoreImages,
+    gaijin: appData.gaijinImages,
+    wsskate: appData.wsskateImages
+  };
+  
+  const results = {};
+  
+  for (const [gridId, data] of Object.entries(grids)) {
+    const grid = document.getElementById(`${gridId}-grid`);
+    if (grid) {
+      console.log(`Attempting to force populate ${gridId} grid with`, data.length, 'items');
+      populateProductGrid(grid, data, gridId.replace('s-grid', ''));
+      results[gridId] = 'Grid population attempted';
+    } else {
+      results[gridId] = 'Could not find grid element';
+    }
   }
+  
+  return results;
 }
 
 function testImageLoading() {
-  if (!appData.kTruckImages || !appData.kTruckImages.length) {
-    return 'No truck images in appData';
-  }
+  const imageArrays = [
+    { name: 'K Trucks', data: appData.kTruckImages },
+    { name: 'Kotatsu', data: appData.kotatsuImages },
+    { name: 'Anime', data: appData.animeImages },
+    { name: 'Japanese Store', data: appData.jstoreImages },
+    { name: 'Gaijin Haiku', data: appData.gaijinImages },
+    { name: 'WS SKATE', data: appData.wsskateImages }
+  ];
   
   const results = [];
-  appData.kTruckImages.forEach(truck => {
-    const img = new Image();
-    img.onload = () => results.push(`✅ ${truck.id}: ${truck.thumbnailUrl} loaded`);
-    img.onerror = () => results.push(`❌ ${truck.id}: ${truck.thumbnailUrl} failed`);
-    img.src = truck.thumbnailUrl;
+  
+  imageArrays.forEach(({ name, data }) => {
+    if (!data || !data.length) {
+      results.push(`No ${name} images in appData`);
+      return;
+    }
+    
+    results.push(`Testing ${name} images:`);
+    data.forEach(item => {
+      const img = new Image();
+      img.onload = () => results.push(`✅ ${item.id}: ${item.thumbnailUrl} loaded`);
+      img.onerror = () => results.push(`❌ ${item.id}: ${item.thumbnailUrl} failed`);
+      img.src = item.thumbnailUrl;
+    });
   });
   
   // Check after a delay
@@ -616,17 +907,23 @@ function testImageLoading() {
 }
 
 function inspectElements() {
-  const section = document.getElementById('section1');
-  const details = section?.querySelector('.section-details');
-  const content = section?.querySelector('.section-content');
-  const grid = document.getElementById('ktrucks-grid');
+  const sectionIds = ['section1', 'section2', 'section3', 'section4', 'section5', 'section6'];
+  const gridIds = ['ktrucks-grid', 'kotatsu-grid', 'anime-grid', 'jstore-grid', 'gaijin-grid', 'wsskate-grid'];
   
-  return {
-    'Section exists': !!section,
-    'Section details exists': !!details,
-    'Section content exists': !!content,
-    'Grid exists': !!grid,
-    'Grid has children': grid ? grid.children.length : 'N/A',
-    'Section has correct ID': section?.id === 'section1'
-  };
+  const results = {};
+  
+  sectionIds.forEach(id => {
+    const section = document.getElementById(id);
+    results[`${id} exists`] = !!section;
+    results[`${id} details exists`] = !!section?.querySelector('.section-details');
+    results[`${id} content exists`] = !!section?.querySelector('.section-content');
+  });
+  
+  gridIds.forEach(id => {
+    const grid = document.getElementById(id);
+    results[`${id} exists`] = !!grid;
+    results[`${id} has children`] = grid ? grid.children.length : 'N/A';
+  });
+  
+  return results;
 }

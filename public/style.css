@@ -369,6 +369,11 @@ main {
   font-style: italic;
 }
 
+.loading-indicator.error {
+  color: #FF6F6F;
+  font-weight: bold;
+}
+
 /* Product Detail Modal */
 .product-modal {
   display: none;
@@ -449,6 +454,7 @@ main {
   font-size: 12px;
   color: #A77;
   margin-bottom: 5px;
+  text-transform: capitalize;
 }
 
 .spec-value {
@@ -459,6 +465,11 @@ main {
 .product-detail-description {
   line-height: 1.6;
   color: #E0E2D7;
+}
+
+/* Section-specific styles */
+#section5 .product-grid {
+  margin-top: 20px;
 }
 
 /* Footer */
@@ -538,7 +549,7 @@ footer {
     gap: 15px;
   }
   
-  /* Responsive adjustments for K Trucks */
+  /* Responsive adjustments for product items */
   .product-item {
     width: 160px;
     height: 160px;
