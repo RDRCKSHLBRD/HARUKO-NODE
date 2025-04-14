@@ -1,0 +1,32 @@
+[
+  {
+    "id": "kotatsu-1",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Kotatsu Placeholder 1"
+  },
+  {
+    "id": "kotatsu-2",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Kotatsu Placeholder 2"
+  },
+  {
+    "id": "kotatsu-3",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Kotatsu Placeholder 3"
+  },
+  {
+    "id": "kotatsu-4",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Kotatsu Placeholder 4"
+  },
+  {
+    "id": "kotatsu-5",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Kotatsu Placeholder 5"
+  }
+]

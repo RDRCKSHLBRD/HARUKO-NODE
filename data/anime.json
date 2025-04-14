@@ -1,0 +1,32 @@
+[
+  {
+    "id": "anime-1",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Anime Item 1"
+  },
+  {
+    "id": "anime-2",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Anime Item 2"
+  },
+  {
+    "id": "anime-3",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Anime Item 3"
+  },
+  {
+    "id": "anime-4",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Anime Item 4"
+  },
+  {
+    "id": "anime-5",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Anime Item 5"
+  }
+]

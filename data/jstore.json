@@ -1,0 +1,32 @@
+[
+  {
+    "id": "jstore-1",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "JStore Item 1"
+  },
+  {
+    "id": "jstore-2",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "JStore Item 2"
+  },
+  {
+    "id": "jstore-3",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "JStore Item 3"
+  },
+  {
+    "id": "jstore-4",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "JStore Item 4"
+  },
+  {
+    "id": "jstore-5",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "JStore Item 5"
+  }
+]

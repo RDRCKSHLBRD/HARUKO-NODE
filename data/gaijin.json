@@ -1,0 +1,32 @@
+[
+  {
+    "id": "gaijin-1",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Gaijin Item 1"
+  },
+  {
+    "id": "gaijin-2",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Gaijin Item 2"
+  },
+  {
+    "id": "gaijin-3",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Gaijin Item 3"
+  },
+  {
+    "id": "gaijin-4",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Gaijin Item 4"
+  },
+  {
+    "id": "gaijin-5",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "Gaijin Item 5"
+  }
+]

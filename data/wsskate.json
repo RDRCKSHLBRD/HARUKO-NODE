@@ -1,0 +1,32 @@
+[
+  {
+    "id": "wsskate-1",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "WS Skate Item 1"
+  },
+  {
+    "id": "wsskate-2",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "WS Skate Item 2"
+  },
+  {
+    "id": "wsskate-3",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "WS Skate Item 3"
+  },
+  {
+    "id": "wsskate-4",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "WS Skate Item 4"
+  },
+  {
+    "id": "wsskate-5",
+    "imageUrl": "/assets/imagePlaceholder.png",
+    "thumbnailUrl": "/assets/imagePlaceholder.png",
+    "alt": "WS Skate Item 5"
+  }
+]
