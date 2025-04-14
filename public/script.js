@@ -158,6 +158,7 @@ function renderInitialUI(elements, appData) {
     section3: { title: 'Anime', content: 'Explore our collection of Japanese animation, movies, music, and other media. Direct imports from Japan with original packaging.' },
     section4: { title: 'Japanese Store', content: 'Discover unique Japanese clothing styles and household items. From traditional wear to modern Japanese home goods.' },
     section5: { title: 'Gaijin Haiku', content: '' },
+    section6: { title: 'WS SKATE Scene', content: 'Video Library' },
   };
 
   updateSections(elements.containers, initialSections, appData);
