@@ -1,0 +1,47 @@
+[
+  {
+    "id": "wsskate-1",
+    "title": "WS Skate Title 1",
+    "description": "Placeholder description for WS Skate 1.",
+    "length": "Sample length 1",
+    "format": "Sample format 1",
+    "year": "Sample year 1",
+    "price": "Sample price 1"
+  },
+  {
+    "id": "wsskate-2",
+    "title": "WS Skate Title 2",
+    "description": "Placeholder description for WS Skate 2.",
+    "length": "Sample length 2",
+    "format": "Sample format 2",
+    "year": "Sample year 2",
+    "price": "Sample price 2"
+  },
+  {
+    "id": "wsskate-3",
+    "title": "WS Skate Title 3",
+    "description": "Placeholder description for WS Skate 3.",
+    "length": "Sample length 3",
+    "format": "Sample format 3",
+    "year": "Sample year 3",
+    "price": "Sample price 3"
+  },
+  {
+    "id": "wsskate-4",
+    "title": "WS Skate Title 4",
+    "description": "Placeholder description for WS Skate 4.",
+    "length": "Sample length 4",
+    "format": "Sample format 4",
+    "year": "Sample year 4",
+    "price": "Sample price 4"
+  },
+  {
+    "id": "wsskate-5",
+    "title": "WS Skate Title 5",
+    "description": "Placeholder description for WS Skate 5.",
+    "length": "Sample length 5",
+    "format": "Sample format 5",
+    "year": "Sample year 5",
+    "price": "Sample price 5"
+  }
+]

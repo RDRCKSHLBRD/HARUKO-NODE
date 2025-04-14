@@ -1,0 +1,47 @@
+[
+  {
+    "id": "anime-1",
+    "title": "Anime Title 1",
+    "description": "Placeholder description for Anime 1.",
+    "genre": "Sample genre 1",
+    "episodes": "Sample episodes 1",
+    "year": "Sample year 1",
+    "price": "Sample price 1"
+  },
+  {
+    "id": "anime-2",
+    "title": "Anime Title 2",
+    "description": "Placeholder description for Anime 2.",
+    "genre": "Sample genre 2",
+    "episodes": "Sample episodes 2",
+    "year": "Sample year 2",
+    "price": "Sample price 2"
+  },
+  {
+    "id": "anime-3",
+    "title": "Anime Title 3",
+    "description": "Placeholder description for Anime 3.",
+    "genre": "Sample genre 3",
+    "episodes": "Sample episodes 3",
+    "year": "Sample year 3",
+    "price": "Sample price 3"
+  },
+  {
+    "id": "anime-4",
+    "title": "Anime Title 4",
+    "description": "Placeholder description for Anime 4.",
+    "genre": "Sample genre 4",
+    "episodes": "Sample episodes 4",
+    "year": "Sample year 4",
+    "price": "Sample price 4"
+  },
+  {
+    "id": "anime-5",
+    "title": "Anime Title 5",
+    "description": "Placeholder description for Anime 5.",
+    "genre": "Sample genre 5",
+    "episodes": "Sample episodes 5",
+    "year": "Sample year 5",
+    "price": "Sample price 5"
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "jstore-1",
+    "title": "JStore Item 1",
+    "description": "Placeholder description for JStore item 1.",
+    "category": "Sample category 1",
+    "origin": "Sample origin 1",
+    "material": "Sample material 1",
+    "size": "Sample size 1",
+    "price": "Sample price 1"
+  },
+  {
+    "id": "jstore-2",
+    "title": "JStore Item 2",
+    "description": "Placeholder description for JStore item 2.",
+    "category": "Sample category 2",
+    "origin": "Sample origin 2",
+    "material": "Sample material 2",
+    "size": "Sample size 2",
+    "price": "Sample price 2"
+  },
+  {
+    "id": "jstore-3",
+    "title": "JStore Item 3",
+    "description": "Placeholder description for JStore item 3.",
+    "category": "Sample category 3",
+    "origin": "Sample origin 3",
+    "material": "Sample material 3",
+    "size": "Sample size 3",
+    "price": "Sample price 3"
+  },
+  {
+    "id": "jstore-4",
+    "title": "JStore Item 4",
+    "description": "Placeholder description for JStore item 4.",
+    "category": "Sample category 4",
+    "origin": "Sample origin 4",
+    "material": "Sample material 4",
+    "size": "Sample size 4",
+    "price": "Sample price 4"
+  },
+  {
+    "id": "jstore-5",
+    "title": "JStore Item 5",
+    "description": "Placeholder description for JStore item 5.",
+    "category": "Sample category 5",
+    "origin": "Sample origin 5",
+    "material": "Sample material 5",
+    "size": "Sample size 5",
+    "price": "Sample price 5"
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "kotatsu-1",
+    "title": "Kotatsu Item 1",
+    "description": "Placeholder description for Kotatsu item 1.",
+    "size": "Sample size 1",
+    "material": "Sample material 1",
+    "heater": "Sample heater 1",
+    "style": "Sample style 1",
+    "price": "Sample price 1"
+  },
+  {
+    "id": "kotatsu-2",
+    "title": "Kotatsu Item 2",
+    "description": "Placeholder description for Kotatsu item 2.",
+    "size": "Sample size 2",
+    "material": "Sample material 2",
+    "heater": "Sample heater 2",
+    "style": "Sample style 2",
+    "price": "Sample price 2"
+  },
+  {
+    "id": "kotatsu-3",
+    "title": "Kotatsu Item 3",
+    "description": "Placeholder description for Kotatsu item 3.",
+    "size": "Sample size 3",
+    "material": "Sample material 3",
+    "heater": "Sample heater 3",
+    "style": "Sample style 3",
+    "price": "Sample price 3"
+  },
+  {
+    "id": "kotatsu-4",
+    "title": "Kotatsu Item 4",
+    "description": "Placeholder description for Kotatsu item 4.",
+    "size": "Sample size 4",
+    "material": "Sample material 4",
+    "heater": "Sample heater 4",
+    "style": "Sample style 4",
+    "price": "Sample price 4"
+  },
+  {
+    "id": "kotatsu-5",
+    "title": "Kotatsu Item 5",
+    "description": "Placeholder description for Kotatsu item 5.",
+    "size": "Sample size 5",
+    "material": "Sample material 5",
+    "heater": "Sample heater 5",
+    "style": "Sample style 5",
+    "price": "Sample price 5"
+  }
+]

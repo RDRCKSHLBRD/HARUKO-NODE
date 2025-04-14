@@ -1,0 +1,47 @@
+[
+  {
+    "id": "gaijin-1",
+    "title": "Gaijin Haiku 1",
+    "description": "Placeholder description for Gaijin item 1.",
+    "author": "Sample author 1",
+    "style": "Sample style 1",
+    "year": "Sample year 1",
+    "price": "Sample price 1"
+  },
+  {
+    "id": "gaijin-2",
+    "title": "Gaijin Haiku 2",
+    "description": "Placeholder description for Gaijin item 2.",
+    "author": "Sample author 2",
+    "style": "Sample style 2",
+    "year": "Sample year 2",
+    "price": "Sample price 2"
+  },
+  {
+    "id": "gaijin-3",
+    "title": "Gaijin Haiku 3",
+    "description": "Placeholder description for Gaijin item 3.",
+    "author": "Sample author 3",
+    "style": "Sample style 3",
+    "year": "Sample year 3",
+    "price": "Sample price 3"
+  },
+  {
+    "id": "gaijin-4",
+    "title": "Gaijin Haiku 4",
+    "description": "Placeholder description for Gaijin item 4.",
+    "author": "Sample author 4",
+    "style": "Sample style 4",
+    "year": "Sample year 4",
+    "price": "Sample price 4"
+  },
+  {
+    "id": "gaijin-5",
+    "title": "Gaijin Haiku 5",
+    "description": "Placeholder description for Gaijin item 5.",
+    "author": "Sample author 5",
+    "style": "Sample style 5",
+    "year": "Sample year 5",
+    "price": "Sample price 5"
+  }
+]
