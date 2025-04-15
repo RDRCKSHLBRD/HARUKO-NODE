@@ -1,32 +1,44 @@
 [
   {
     "id": "kt001",
-    "imageUrl": "/assets/Suzuki-Carry-1991-1998.png",
-    "thumbnailUrl": "/assets/Suzuki-Carry-1991-1998.png",
-    "alt": "Suzuki Carry Mini Truck"
+    "gallery": [
+      "https://storage.googleapis.com/rdxenv-haruko1/1-DAIHATSU-HIJET-FIRE-THUMB/1-DAIHATSU-HIJET-FIRE2-thumb.png",
+      "https://storage.googleapis.com/rdxenv-haruko1/1-DAIHATSU-HIJET-FIRE-THUMB/1-DAIHATSU-HIJET-FIRE4-thumb.png"
+    ],
+    "thumbnailUrl": "https://storage.googleapis.com/rdxenv-haruko1/1-DAIHATSU-HIJET-FIRE-THUMB/1-DAIHATSU-HIJET-FIRE2-thumb.png",
+    "alt": "DAIHATSU HIJET FIRE"
   },
   {
     "id": "kt002",
-    "imageUrl": "/assets/Honda-Acty-1990-1999.png",
-    "thumbnailUrl": "/assets/Honda-Acty-1990-1999.png",
-    "alt": "Honda Acty Mini Truck"
+    "gallery": [
+      "https://storage.googleapis.com/rdxenv-haruko1/2-SUZUKI-JIMNY-THUMB/2-SUZUKI-JIMNY2-THUMB.png",
+      "https://storage.googleapis.com/rdxenv-haruko1/2-SUZUKI-JIMNY-THUMB/2-SUZUKI-JIMNY1-THUMB.png",
+      "https://storage.googleapis.com/rdxenv-haruko1/2-SUZUKI-JIMNY-THUMB/2-SUZUKI-JIMNY4-THUMB.png",
+      "https://storage.googleapis.com/rdxenv-haruko1/2-SUZUKI-JIMNY-THUMB/2-SUZUKI-JIMNY3-THUMB.png"
+
+    ],
+    "thumbnailUrl": "https://storage.googleapis.com/rdxenv-haruko1/2-SUZUKI-JIMNY-THUMB/2-SUZUKI-JIMNY2-THUMB.png",
+    "alt": "SUZUKI JIMNY"
   },
   {
     "id": "kt003",
-    "imageUrl": "/assets/Daihatsu-Hijet-1990-1993-1994-1998.png",
-    "thumbnailUrl": "/assets/Daihatsu-Hijet-1990-1993-1994-1998.png",
-    "alt": "Daihatsu Hijet Mini Truck"
+    "gallery": [
+      "https://storage.googleapis.com/rdxenv-haruko1/3-SUZUKI-JIMNY-THUMB/3-SUZUKI-JIMNY3-THUMB.png",
+      "https://storage.googleapis.com/rdxenv-haruko1/3-SUZUKI-JIMNY-THUMB/3-SUZUKI-JIMNY1-THUMB.png",
+      "https://storage.googleapis.com/rdxenv-haruko1/3-SUZUKI-JIMNY-THUMB/3-SUZUKI-JIMNY2-THUMB.png"
+
+    ],
+    "thumbnailUrl": "https://storage.googleapis.com/rdxenv-haruko1/3-SUZUKI-JIMNY-THUMB/3-SUZUKI-JIMNY3-THUMB.png",
+    "alt": "SUZUKI JIMNY"
   },
   {
     "id": "kt004",
-    "imageUrl": "/assets/Mitsubishi-Mini-Cab-1991-1998.png",
-    "thumbnailUrl": "/assets/Mitsubishi-Mini-Cab-1991-1998.png",
-    "alt": "Mitsubishi Minicab Mini Truck"
-  },
-  {
-    "id": "kt005",
-    "imageUrl": "/assets/Subaru-Sambar-1991-1998.png",
-    "thumbnailUrl": "/assets/Subaru-Sambar-1991-1998.png",
-    "alt": "Subaru Sambar Mini Truck"
+    "gallery": [
+      "https://storage.googleapis.com/rdxenv-haruko1/4-DAIHATSU-MIDGET-THUMB/4-DAIHATSU-MIDGET2-THUMB.png",
+      "https://storage.googleapis.com/rdxenv-haruko1/4-DAIHATSU-MIDGET-THUMB/4-DAIHATSU-MIDGET3-THUMB.png",
+      "https://storage.googleapis.com/rdxenv-haruko1/4-DAIHATSU-MIDGET-THUMB/4-DAIHATSU-MIDGET1-THUMB.png"
+    ],
+    "thumbnailUrl": "https://storage.googleapis.com/rdxenv-haruko1/4-DAIHATSU-MIDGET-THUMB/4-DAIHATSU-MIDGET2-THUMB.png",
+    "alt": "DAIHATSU MIDGET"
   }
 ]

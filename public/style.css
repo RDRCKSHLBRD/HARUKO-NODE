@@ -472,6 +472,68 @@ main {
   margin-top: 20px;
 }
 
+.image-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.image-carousel img {
+  flex: 0 0 auto;
+  max-height: 500px;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.carousel-image {
+  max-height: 400px;
+  max-width: 100%;
+  object-fit: contain;
+  border: 1px solid #57030A;
+  border-radius: 5px;
+  background-color: #211F1F;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+  color: #E56161;
+  background: rgba(0,0,0,0.4);
+  border: none;
+  padding: 0 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.carousel-button:hover {
+  background: rgba(255,255,255,0.1);
+  color: #FF6F6F;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+
+
+
+
 /* Footer */
 footer {
   background-color: #0C0101;

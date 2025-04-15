@@ -668,13 +668,18 @@ function showProductDetails(itemId, type) {
  */
 function createProductDetailHTML(image, description) {
   if (!image || !description) return '';
-  
-  // Make sure image URL is correct
-  const imgUrl = image.imageUrl.startsWith('http')
-    ? image.imageUrl
-    : (image.imageUrl.startsWith('/') ? image.imageUrl : `/${image.imageUrl}`);
-  
-  // Get dynamic specs based on available keys in description
+
+  const galleryImages = Array.isArray(image.gallery) ? image.gallery : [image.imageUrl];
+  const imageElements = galleryImages.map((url, i) => `
+    <img 
+      class="carousel-image" 
+      src="${url}" 
+      alt="${image.alt} - ${i + 1}" 
+      style="display: ${i === 0 ? 'block' : 'none'};"
+      data-index="${i}"
+    >
+  `).join('');
+
   const specEntries = Object.entries(description)
     .filter(([key]) => !['id', 'title', 'description'].includes(key))
     .map(([key, value]) => `
@@ -684,19 +689,45 @@ function createProductDetailHTML(image, description) {
       </div>
     `)
     .join('');
-  
+
   return `
-    <img class="product-detail-image"
-         src="${imgUrl}"
-         alt="${image.alt}"
-         onerror="this.src='https://via.placeholder.com/800x500?text=${image.id}'; console.log('Detail image load error for ${image.id}');">
-    <h2 class="product-detail-title">${description.title}</h2>
-    <div class="product-detail-specs">
-      ${specEntries}
+    <div class="carousel-container">
+      ${imageElements}
+      <button class="carousel-button prev">&larr;</button>
+      <button class="carousel-button next">&rarr;</button>
     </div>
+    <h2 class="product-detail-title">${description.title}</h2>
+    <div class="product-detail-specs">${specEntries}</div>
     <p class="product-detail-description">${description.description}</p>
   `;
 }
+
+
+
+
+document.addEventListener('click', (event) => {
+  // Only handle carousel buttons
+  if (event.target.classList.contains('carousel-button')) {
+    event.stopPropagation(); // ✅ Prevent modal close
+
+    const container = event.target.closest('.carousel-container');
+    const images = container.querySelectorAll('.carousel-image');
+    const total = images.length;
+
+    let currentIndex = [...images].findIndex(img => img.style.display === 'block');
+    images[currentIndex].style.display = 'none';
+
+    if (event.target.classList.contains('next')) {
+      currentIndex = (currentIndex + 1) % total;
+    } else if (event.target.classList.contains('prev')) {
+      currentIndex = (currentIndex - 1 + total) % total;
+    }
+
+    images[currentIndex].style.display = 'block';
+  }
+});
+
+
 
 /**
  * Set up event listeners for interactive elements
