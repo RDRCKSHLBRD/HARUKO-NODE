@@ -573,6 +573,15 @@ footer {
     margin-right: .4em;
   }
 
+  .sidebar {
+    background-color: #1C0202;
+    padding: 4px;
+    overflow-y: auto;  /* ⬅️ Allow vertical scrolling */
+    max-height: calc(100vh - 100px); /* Adjust for header/footer if needed */
+  }
+  
+
+
   .sidebar-container {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
@@ -592,6 +601,14 @@ footer {
     text-align: left;
   }
   
+
+  .submenu {
+    overflow-y: auto;
+    max-height: 600px;
+    padding-bottom: 5px;
+  }
+  
+
   .nav-link {
     font-size: 15px;
     padding: 10px;

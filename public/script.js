@@ -43,7 +43,6 @@ async function initializeApp() {
 async function updateSidebarFromCopyJson() {
   try {
     const response = await fetch('/api/data/copy.json');
-
     const websiteCopy = await response.json();
     const sidebar = document.getElementById('dynamic-sidebar');
     if (!sidebar) return console.error('Sidebar container not found.');
@@ -53,7 +52,7 @@ async function updateSidebarFromCopyJson() {
     Object.entries(websiteCopy).forEach(([sectionKey, sectionData]) => {
       const mainDetails = document.createElement('li');
       mainDetails.innerHTML = `
-        <details class="submenu-details">
+        <details class="submenu-details" open>
           <summary class="nav-link">${sectionData.title}</summary>
           <div class="submenu"></div>
         </details>
@@ -61,39 +60,40 @@ async function updateSidebarFromCopyJson() {
       
       const submenu = mainDetails.querySelector('.submenu');
 
-      // Sub-sections
+      // If sections exist, loop through them
       if (sectionData.sections && Array.isArray(sectionData.sections)) {
         sectionData.sections.forEach(sub => {
-          const subLinkWrapper = document.createElement('div');
-          subLinkWrapper.className = 'submenu-link';
-          subLinkWrapper.innerHTML = `<strong>${sub.title}</strong>`;
-          
-          submenu.appendChild(subLinkWrapper);
+          const subDiv = document.createElement('div');
+          subDiv.className = 'submenu-link';
+          subDiv.innerHTML = `<strong>${sub.title}</strong><br><div style="padding-left:10px; font-weight: 300;">${sub.content}</div>`;
+          submenu.appendChild(subDiv);
 
-          // Optional: Sub-submenu if product/options exist
           if (sub.products && Array.isArray(sub.products)) {
             sub.products.forEach(product => {
-              const typeWrapper = document.createElement('div');
-              typeWrapper.style.paddingLeft = '10px';
-              typeWrapper.innerHTML = `<em>${product.type} - ${product.design}</em>`;
-              submenu.appendChild(typeWrapper);
+              const productDiv = document.createElement('div');
+              productDiv.innerHTML = `<em style="padding-left: 15px;">${product.type} – ${product.design}</em>`;
+              submenu.appendChild(productDiv);
 
-              product.options?.forEach(opt => {
-                const optDiv = document.createElement('div');
-                optDiv.className = 'submenu-link';
-                optDiv.style.paddingLeft = '20px';
-                optDiv.textContent = `${opt.color} (${opt.status})`;
-                submenu.appendChild(optDiv);
-              });
+              if (product.options) {
+                product.options.forEach(opt => {
+                  const optDiv = document.createElement('div');
+                  optDiv.className = 'submenu-link';
+                  optDiv.style.paddingLeft = '25px';
+                  optDiv.textContent = `${opt.color} (${opt.status})`;
+                  submenu.appendChild(optDiv);
+                });
+              }
             });
           }
         });
-      } else if (sectionData.content) {
-        // If no sub-sections, just show content
-        const content = document.createElement('div');
-        content.className = 'submenu-link';
-        content.innerHTML = sectionData.content.slice(0, 100) + '...';
-        submenu.appendChild(content);
+      }
+
+      // If top-level content exists
+      if (sectionData.content && !sectionData.sections) {
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'submenu-link';
+        contentDiv.innerHTML = `<div style="font-weight: 300;">${sectionData.content}</div>`;
+        submenu.appendChild(contentDiv);
       }
 
       sidebar.appendChild(mainDetails);
@@ -102,6 +102,7 @@ async function updateSidebarFromCopyJson() {
     console.error('Failed to build sidebar from copy.json:', error);
   }
 }
+
 
 
 /**
