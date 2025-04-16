@@ -1,0 +1,115 @@
+{
+  "about": {
+    "title": "About Us",
+    "content": "Haruko Imports is more than a business—it's a cultural bridge between East and West. Based in Seattle, we're crafting a unique Hub connecting cool, innovative concepts across continents, cultures, ideas, and individuals.\n\nOur vision is to create a vibrant space where merchandise meets meaning, and products carry philosophy. As a developing East/West Gateway Emporium, we're dedicated to bringing you authentic experiences that speak to both heritage and contemporary sensibilities."
+  },
+  "focus": {
+    "title": "Our Focus",
+    "sections": [
+      {
+        "title": "Japanese Automotive Imports",
+        "content": "We specialize in importing authentic Japanese K-trucks and select cars, bringing these unique vehicles to American enthusiasts. Each import represents the perfect blend of functionality, distinctive design, and Japanese engineering excellence."
+      },
+      {
+        "title": "Philosophy-Driven Merchandise",
+        "content": "Our apparel lines embody street philosophy and sensibility, featuring thought-provoking phrases and designs that start conversations. Each piece in our collection invites you to wear your values and perspectives."
+      },
+      {
+        "title": "Community Building",
+        "content": "Haruko Imports is actively creating a space for truth-seekers and cultural explorers. We believe in fostering genuine connections through shared appreciation of cross-cultural ideas and expressions."
+      },
+      {
+        "title": "Creative Archive",
+        "content": "We're building a comprehensive music and art database that celebrates artistic expression across cultures. This growing archive serves as both inspiration for our products and a resource for our community."
+      }
+    ]
+  },
+  "collections": {
+    "title": "Featured Collections",
+    "sections": [
+      {
+        "id": "skipt-skool",
+        "title": "SKIPT SKOOL",
+        "content": "Our flagship collection embodies the spirit of independent thinking and alternative education. Available in both casual t-shirts with bold back designs and sophisticated polos with subtle front pocket accents.",
+        "products": [
+          {
+            "type": "T-Shirt",
+            "design": "Back of t-shirt",
+            "options": [
+              {"color": "White font / Black T", "status": "Available"},
+              {"color": "Black font / White T", "status": "Available"},
+              {"color": "Original Custom / Black T", "status": "Available"}
+            ]
+          },
+          {
+            "type": "POLO",
+            "design": "Front left pocket",
+            "options": [
+              {"color": "White font / Black POLO", "status": "To Be Ordered"},
+              {"color": "Black font / White POLO", "status": "To Be Ordered"},
+              {"color": "Original Bleach Custom / Black POLO", "status": "To Be Ordered"}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "decide-commit",
+        "title": "Decide and Commit",
+        "content": "A statement collection that encourages decisive action. These versatile t-shirts feature our empowering mantra in classic black and white combinations.",
+        "products": [
+          {
+            "type": "T-Shirt",
+            "design": "Front or Back",
+            "options": [
+              {"color": "White Font / Black T", "status": "Available"},
+              {"color": "Black Font / White T", "status": "Available"}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "what-gives",
+        "title": "WHAT GIVES",
+        "content": "Our minimalist design that speaks volumes. This thoughtful logo piece on a clean white canvas invites reflection and conversation.",
+        "products": [
+          {
+            "type": "T-Shirt",
+            "design": "Logo",
+            "options": [
+              {"color": "Logo on White T-Shirt", "status": "Available"}
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "japanese_imports": {
+    "title": "Japanese Imports",
+    "sections": [
+      {
+        "id": "k-trucks",
+        "title": "K Trucks",
+        "content": "Browse our selection of compact Japanese Kei trucks, perfect for urban deliveries and small businesses. Features include excellent fuel economy and easy maneuverability."
+      },
+      {
+        "id": "kotatsu",
+        "title": "Kotatsu",
+        "content": "Authentic Japanese Kotatsu tables, combining comfort and functionality. Perfect for keeping warm during winter while enjoying meals or relaxing."
+      },
+      {
+        "id": "anime",
+        "title": "Anime",
+        "content": "Explore our collection of Japanese animation, movies, music, and other media. Direct imports from Japan with original packaging."
+      },
+      {
+        "id": "japanese-store",
+        "title": "Japanese Store",
+        "content": "Discover unique Japanese clothing styles and household items. From traditional wear to modern Japanese home goods."
+      }
+    ]
+  },
+  "community": {
+    "title": "Join Our Journey",
+    "content": "Haruko Imports is more than merchandise—it's a movement connecting people through shared appreciation of authentic cross-cultural experiences. Follow our growth as we expand our offerings and build a community that values cultural exchange and philosophical exploration."
+  }
+}
