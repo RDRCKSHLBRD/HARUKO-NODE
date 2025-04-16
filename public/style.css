@@ -193,10 +193,10 @@ header {
 
 .submenu-link {
   display: block;
-  padding: 8px 25px; /* Adjusted padding */
+  padding: 20px;
   text-decoration: none;
   color: #E0E0E0;
-  font-size: 12px;
+  font-size: 13px;
   border-bottom: 1px solid #3A0A0A;
 }
 

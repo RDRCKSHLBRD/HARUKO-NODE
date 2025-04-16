@@ -6,6 +6,9 @@ let appData = {};
 async function initializeApp() {
   console.log('initializeApp: Application initialization started.');
 
+  await updateSidebarFromCopyJson();
+
+
   // Select DOM elements
   const elements = selectDOMelements();
   if (!elements) {
@@ -33,6 +36,73 @@ async function initializeApp() {
     displayError(elements.kTrucksGrid, 'Failed to load initial data.');
   }
 }
+
+
+//********* SIDEBAR */
+
+async function updateSidebarFromCopyJson() {
+  try {
+    const response = await fetch('/api/data/copy.json');
+
+    const websiteCopy = await response.json();
+    const sidebar = document.getElementById('dynamic-sidebar');
+    if (!sidebar) return console.error('Sidebar container not found.');
+
+    sidebar.innerHTML = ''; // Clear any existing content
+
+    Object.entries(websiteCopy).forEach(([sectionKey, sectionData]) => {
+      const mainDetails = document.createElement('li');
+      mainDetails.innerHTML = `
+        <details class="submenu-details">
+          <summary class="nav-link">${sectionData.title}</summary>
+          <div class="submenu"></div>
+        </details>
+      `;
+      
+      const submenu = mainDetails.querySelector('.submenu');
+
+      // Sub-sections
+      if (sectionData.sections && Array.isArray(sectionData.sections)) {
+        sectionData.sections.forEach(sub => {
+          const subLinkWrapper = document.createElement('div');
+          subLinkWrapper.className = 'submenu-link';
+          subLinkWrapper.innerHTML = `<strong>${sub.title}</strong>`;
+          
+          submenu.appendChild(subLinkWrapper);
+
+          // Optional: Sub-submenu if product/options exist
+          if (sub.products && Array.isArray(sub.products)) {
+            sub.products.forEach(product => {
+              const typeWrapper = document.createElement('div');
+              typeWrapper.style.paddingLeft = '10px';
+              typeWrapper.innerHTML = `<em>${product.type} - ${product.design}</em>`;
+              submenu.appendChild(typeWrapper);
+
+              product.options?.forEach(opt => {
+                const optDiv = document.createElement('div');
+                optDiv.className = 'submenu-link';
+                optDiv.style.paddingLeft = '20px';
+                optDiv.textContent = `${opt.color} (${opt.status})`;
+                submenu.appendChild(optDiv);
+              });
+            });
+          }
+        });
+      } else if (sectionData.content) {
+        // If no sub-sections, just show content
+        const content = document.createElement('div');
+        content.className = 'submenu-link';
+        content.innerHTML = sectionData.content.slice(0, 100) + '...';
+        submenu.appendChild(content);
+      }
+
+      sidebar.appendChild(mainDetails);
+    });
+  } catch (error) {
+    console.error('Failed to build sidebar from copy.json:', error);
+  }
+}
+
 
 /**
  * Select all required DOM elements
