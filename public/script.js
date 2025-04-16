@@ -837,7 +837,7 @@ function setupEventListeners(elements, appData) {
       event.stopPropagation();
       
       // Close other submenus when one is opened
-      closeOtherSubmenus(elements.submenuDetails, submenu);
+      
       
       // Direct class manipulation for submenu expanded state
       const anySubmenuOpen = elements.submenuDetails.some(detail => detail.open);
